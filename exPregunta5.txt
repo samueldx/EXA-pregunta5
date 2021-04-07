@@ -1,0 +1,37 @@
+#PREGUNTA 5
+
+
+@author: A-SAMUEL
+"""
+#PROBLEMA DE DEPENDENCIA
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+import numpy as np
+from kanren import run, eq, var 
+
+from kanren import Relation, facts
+parent =Relation()
+
+x=var()
+y=var()
+
+
+
+facts(parent,("JUAN","samuel"),("JUAN","daniel"),
+            ("GORGE","JUAN"),
+            ("PEDRO","ernesto"))
+
+print("===RELACION DE PADRES=====")
+print(run(1,x,parent(x,"samuel")))
+print(run(1,x,parent(x,"daniel")))
+print(run(1,x,parent(x,"JUAN")))
+print(run(1,x,parent(x,"ernesto")))
+
+print("====RELACION DE ABUELOS====")
+facts(parent,("GORGE","samuel"),("GORGE","daniel"))
+
+print(run(1,y,parent(y,"samuel")))
+print(run(1,y,parent(y,"daniel")))
+
